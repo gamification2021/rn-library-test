@@ -1,6 +1,6 @@
 {
-  "name": "rn-test-library",
-  "version": "1.0.0",
+  "name": "rn-test-library-sixdee",
+  "version": "1.0.1",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -17,5 +17,19 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": false,
+  "description": "testing library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamification2021/rn-library-test.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "6d",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gamification2021/rn-library-test/issues"
+  },
+  "homepage": "https://github.com/gamification2021/rn-library-test#readme"
 }
