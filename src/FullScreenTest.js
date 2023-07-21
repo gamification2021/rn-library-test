@@ -12,7 +12,7 @@ const FullScreenTest = (props) => {
                 <Text style={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}>FullScreenTest</Text>
 
             </TouchableOpacity>
-            <Text>this is first screen</Text>
+            <Text>this is first screen loaded from the library</Text>
         </View>
     )
 }

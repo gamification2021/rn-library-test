@@ -3,8 +3,9 @@ import React from 'react'
 
 const SecondScreenTest = () => {
     return (
-        <View>
-            <Text>SecondScreenTest</Text>
+        <View style={{ alignItems: 'center', backgroundColor: 'red', flex: 1, justifyContent: 'center', width: '100%' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>SecondScreenTest</Text>
+            <Text>Navigated to second screen in sdk</Text>
         </View>
     )
 }

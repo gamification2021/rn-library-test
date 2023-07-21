@@ -1,4 +1,3 @@
-// import TestNav from "./src/TestNav";
-// export { TestNav };
+import TestNav from "./src/TestNav";
 import NavPath from "./src/NavPath";
-export { NavPath };
+export { NavPath, TestNav };
