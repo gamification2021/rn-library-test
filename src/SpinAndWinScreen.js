@@ -15,6 +15,8 @@ import colors from "./colors";
 import { TouchableOpacity } from "react-native";
 import StatusBarExcludedArea from "./StatusBarExcludedArea";
 import SuccessDialog from "./SuccessDialog";
+import TextNormal from "./TextNormal";
+import TextBold from "./TextBold";
 
 const Wheel = () => {
     return (

@@ -1,7 +1,7 @@
 {
   "name": "rn-test-library-sixdee",
-  "version": "2.2.2",
-  "main": "node_modules/expo/AppEntry.js",
+  "version": "2.2.3",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -16,12 +16,14 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-reanimated": "~2.14.4",
+    "react-native-svg": "13.4.0",
     "react-native-wheel-of-fortune": "^1.5.4",
-    "victory-native": "^36.6.11",
-    "react-native-reanimated": "~2.14.4"
+    "svg-path-properties": "^1.2.0",
+    "victory-native": "^36.6.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core":"^7.20.0"
   },
   "private": false,
   "description": "testing library",
