@@ -10,9 +10,10 @@ const Stack = createStackNavigator();
 const NavPath = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="spinScreen" component={ApiScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="spinScreen" component={SpinAndWinScreen} options={{ headerShown: false }} />
             <Stack.Screen name="first" component={FullScreenTest} options={{ headerShown: false }} />
             <Stack.Screen name="second" component={SecondScreenTest} options={{ headerShown: false }} />
+            <Stack.Screen name="jokes" component={ApiScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
     )

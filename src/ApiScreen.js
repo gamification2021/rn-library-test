@@ -25,6 +25,7 @@ const ApiScreen = () => {
 
             <Text style={{ color: 'red', fontSize: 20, textAlign: 'center' }}>{data && data.setup}</Text>
             <Text style={{ color: 'green', fontSize: 18, marginTop: 50, textAlign: 'center' }}>{data && data.delivery}</Text>
+            <Text style={{ bottom: 10, fontSize: 8, position: 'absolute' }}>swipe down to load new jokes</Text>
         </ScrollView>
     )
 }
