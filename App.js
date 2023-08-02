@@ -4,12 +4,15 @@ import FullScreenTest from './src/FullScreenTest';
 import TestNav from './src/TestNav';
 
 import { AppRegistry } from 'react-native';
-AppRegistry.registerComponent('main',() => App);
+import NavPath from './src/NavPath';
+import { NavigationContainer } from '@react-navigation/native';
+AppRegistry.registerComponent('main', () => App);
 
 export default function App() {
   return (
-
-    <TestNav />
+    <NavigationContainer>
+      <NavPath callBack={() => { console.log('hai calling the callback'); }} />
+    </NavigationContainer>
 
   );
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { SafeAreaView, StyleSheet, Text, View, Image, Modal } from "react-native"
+import React, { useState, useEffect, useContext } from "react"
+import { SafeAreaView, StyleSheet, Text, View, Image, Modal, DeviceEventEmitter } from "react-native"
 import { Gesture, GestureDetector } from "react-native-gesture-handler"
 import Animated, {
     useAnimatedStyle,
@@ -17,6 +17,7 @@ import StatusBarExcludedArea from "./StatusBarExcludedArea";
 import SuccessDialog from "./SuccessDialog";
 import TextNormal from "./TextNormal";
 import TextBold from "./TextBold";
+import AppContext from "./context";
 
 const Wheel = () => {
     return (
@@ -43,6 +44,7 @@ const Info = ({ currentAngle, currentColor }) => {
 }
 
 const SpinAndWinScreen = (props) => {
+    const appContext = useContext(AppContext);
     const piedata = ['100 Points', '200 Points', 'Try Again', '150 Points', '500 Points', 'Try again', '300 Points', '400 Points', '600 Points', '800 Points', 'Try Again', '250 Points']
     const graphicColor = ['#000000', '#E2D798'];
     const wantedGraphicData = [{ x: '100 Points', y: 10 }, { x: '200 Points', y: 10 }, { x: 'Try Again', y: 10 }, { x: '150 Points', y: 10 }, { x: '500 Points', y: 10 }, { x: 'Try again', y: 10 }, { x: '300 Points', y: 10 }, { x: '400 Points', y: 10 }, { x: '600 Points', y: 10 }, { x: '800 Points', y: 10 }, { x: 'Try Again', y: 10 }, { x: '250 Points', y: 10 }]
@@ -76,8 +78,10 @@ const SpinAndWinScreen = (props) => {
         setIsEnabled(false)
         setCurrentAngle(parseInt(value.toFixed(), 10))
         sleep(1000).then(() => {
+            appContext.setCallBack(true)
             console.log('haiii working');
             setShowWinner(true);
+
         });
     }
 
@@ -202,10 +206,11 @@ const SpinAndWinScreen = (props) => {
             {/* <Info currentAngle={currentAngle} currentColor={getCurrentColor()} />
             {showWinner && <TextNormal>hellooooooo</TextNormal>} */}
             <TouchableOpacity
-                onPress={startWheelSpinning}
+                disabled={!isEnabled}
+                onPress={isEnabled ? startWheelSpinning : null}
                 style={{ backgroundColor: 'white', borderRadius: 20, height: 40, alignItems: 'center', justifyContent: 'center', marginTop: 100, width: '80%' }}
             >
-                <TextNormal color='black'>Spin Now</TextNormal>
+                <TextNormal color={isEnabled ? 'black' : 'gray'}>Spin Now</TextNormal>
             </TouchableOpacity>
 
             <Modal visible={showWinner} animationType="slide" transparent={true}>
