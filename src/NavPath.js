@@ -9,16 +9,15 @@ import AppContext from './context';
 
 const Stack = createStackNavigator();
 const NavPath = (props) => {
-    const [callBack, setCallBack] = useState(undefined)
+    const [callBack, setCallBack] = useState(undefined);
+    const [gift, setGift] = useState('');
     const appContext = useContext(AppContext);
-    console.log(callBack);
     if (callBack == true) {
-        console.log("TRUEEE");
-        props.callBack();
+        props.callBack && props.callBack(gift);
         setCallBack(false)
     }
     return (
-        <AppContext.Provider value={{ callBack, setCallBack }}>
+        <AppContext.Provider value={{ callBack: [callBack, setCallBack], gift: [gift, setGift] }}>
             <Stack.Navigator>
                 <Stack.Screen name="spinScreen" component={SpinAndWinScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="first" component={FullScreenTest} options={{ headerShown: false }} />

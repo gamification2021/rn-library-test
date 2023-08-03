@@ -11,7 +11,7 @@ AppRegistry.registerComponent('main', () => App);
 export default function App() {
   return (
     <NavigationContainer>
-      <NavPath callBack={() => { console.log('hai calling the callback'); }} />
+      <NavPath callBack={(gift) => { console.log('received  -  ' + gift); }} />
     </NavigationContainer>
 
   );

@@ -44,7 +44,9 @@ const Info = ({ currentAngle, currentColor }) => {
 }
 
 const SpinAndWinScreen = (props) => {
-    const appContext = useContext(AppContext);
+    const { callBack, gift } = useContext(AppContext);
+    const [stateCallBack, setStateCallBack] = callBack;
+    const [satateGift, setStateGift] = gift;
     const piedata = ['100 Points', '200 Points', 'Try Again', '150 Points', '500 Points', 'Try again', '300 Points', '400 Points', '600 Points', '800 Points', 'Try Again', '250 Points']
     const graphicColor = ['#000000', '#E2D798'];
     const wantedGraphicData = [{ x: '100 Points', y: 10 }, { x: '200 Points', y: 10 }, { x: 'Try Again', y: 10 }, { x: '150 Points', y: 10 }, { x: '500 Points', y: 10 }, { x: 'Try again', y: 10 }, { x: '300 Points', y: 10 }, { x: '400 Points', y: 10 }, { x: '600 Points', y: 10 }, { x: '800 Points', y: 10 }, { x: 'Try Again', y: 10 }, { x: '250 Points', y: 10 }]
@@ -78,8 +80,8 @@ const SpinAndWinScreen = (props) => {
         setIsEnabled(false)
         setCurrentAngle(parseInt(value.toFixed(), 10))
         sleep(1000).then(() => {
-            appContext.setCallBack(true)
-            console.log('haiii working');
+
+            //appContext.setCallBack(true)
             setShowWinner(true);
 
         });
@@ -87,7 +89,6 @@ const SpinAndWinScreen = (props) => {
 
     const showDialog = (value) => {
         sleep(4000).then(() => {
-            console.log('haiii working');
             setShowWinner(value);
         });
 
@@ -95,7 +96,6 @@ const SpinAndWinScreen = (props) => {
     const easing = Easing.bezier(0.23, 1, 0.32, 1)
     const [isEnabled, setIsEnabled] = useState(true);
     const gesture = Gesture.Pan().onUpdate(e => {
-        console.log('asasas    ' + isEnabled)
         rotation.value = withTiming(
             Math.abs(e.velocityY) / 7 + rotation.value,
             {
@@ -120,7 +120,7 @@ const SpinAndWinScreen = (props) => {
         angleDifference = 360 - currentAngle;
         if (angleDifference > 0) {
             var quadrant = parseInt(angleDifference / (360 / piedata.length))
-            console.log(quadrant);
+            // console.log(quadrant);
 
             var half = parseInt(piedata.length / 2)
             if (quadrant >= half) {
@@ -135,6 +135,7 @@ const SpinAndWinScreen = (props) => {
 
         return ""
     }
+
 
     const animation = useSharedValue(0);
     const rotationAnimation = useDerivedValue(() => {
@@ -217,6 +218,8 @@ const SpinAndWinScreen = (props) => {
                 <SuccessDialog
                     points={getCurrentColor()}
                     onPress={() => {
+                        setStateGift(getCurrentColor())
+                        setStateCallBack(true);
                         props.navigation.goBack()
                         setShowWinner(false)
                     }} />
