@@ -6,6 +6,7 @@ import SecondScreenTest from './SecondScreenTest';
 import SpinAndWinScreen from './SpinAndWinScreen';
 import ApiScreen from './ApiScreen';
 import AppContext from './context';
+import GameListScreen from './GameListScreen';
 
 const Stack = createStackNavigator();
 const NavPath = (props) => {
@@ -19,6 +20,7 @@ const NavPath = (props) => {
     return (
         <AppContext.Provider value={{ callBack: [callBack, setCallBack], gift: [gift, setGift] }}>
             <Stack.Navigator>
+                <Stack.Screen name="gameList" component={GameListScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="spinScreen" component={SpinAndWinScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="first" component={FullScreenTest} options={{ headerShown: false }} />
                 <Stack.Screen name="second" component={SecondScreenTest} options={{ headerShown: false }} />

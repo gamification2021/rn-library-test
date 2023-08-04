@@ -1,8 +1,8 @@
-import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import ApiClient from './ApiClient';
 
-const ApiScreen = () => {
+const ApiScreen = (props) => {
     const [data, setData] = useState(null);
     const [refreshing, setRefreshing] = useState(false);
     useEffect(() => {
@@ -26,6 +26,10 @@ const ApiScreen = () => {
             <Text style={{ color: 'red', fontSize: 20, textAlign: 'center' }}>{data && data.setup}</Text>
             <Text style={{ color: 'green', fontSize: 18, marginTop: 50, textAlign: 'center' }}>{data && data.delivery}</Text>
             <Text style={{ bottom: 10, fontSize: 8, position: 'absolute' }}>swipe down to load new jokes</Text>
+
+            <TouchableOpacity style={{ height: 100, width: 220, backgroundColor: 'red' }} onPress={() => props.navigation.navigate('first')} >
+
+            </TouchableOpacity>
         </ScrollView>
     )
 }
