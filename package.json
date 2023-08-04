@@ -1,7 +1,7 @@
 {
   "name": "rn-test-library-sixdee",
-  "version": "2.3.5",
-  "main": "index.js",
+  "version": "2.3.6",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
